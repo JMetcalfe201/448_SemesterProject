@@ -1,15 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+public class PlayerController : MonoBehaviour 
+{
+	// [SerializeField] exposes the variable in the Unity Editor
+	[SerializeField] protected PlayerModel model;
+	[SerializeField] protected PlayerView view;
+	
+	// Use this for initialization (inherated from MonoBehavior)
+	protected void Start () 
+	{
 	
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	public void OnMoveRight(float amount)
+	{
+		model.MoveRight(amount);
+	}
 	
+	public void OnJump()
+	{
+		model.Jump();
+	}
+	
+	public void OnUpdateHealth(int health)
+	{
+		view.UpdateHealth(health);
 	}
 }
