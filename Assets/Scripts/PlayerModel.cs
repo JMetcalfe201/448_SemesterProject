@@ -73,7 +73,9 @@ public class PlayerModel : MonoBehaviour
 		
 		// Pass the update up the chain
 		controller.OnUpdateHealth(health);
-		
+			
+			
+		// Clamp health and check for death
 		if(health <= 0)
 		{
 			health = 0;
@@ -83,7 +85,13 @@ public class PlayerModel : MonoBehaviour
 	
 	protected void Die()
 	{
-		// Temp
-		Debug.Log("Player is dead");
+		// Pass the call up
+		controller.OnDie();
+		
+		// Turn off collision and throw the player up in the air and spin them
+		GetComponent<BoxCollider2D>().enabled = false;
+		physics.fixedAngle = false;
+		physics.AddForce(new Vector2(Random.Range(-3,3), 25), ForceMode2D.Impulse);
+		physics.AddTorque(500f);
 	}
 }

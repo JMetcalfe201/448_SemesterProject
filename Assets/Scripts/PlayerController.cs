@@ -27,4 +27,10 @@ public class PlayerController : MonoBehaviour
 	{
 		view.UpdateHealth(health);
 	}
+	
+	public void OnDie()
+	{
+		view.SwitchToDeathSprite();
+		view.SetMovementEnabled(false);
+	}
 }
