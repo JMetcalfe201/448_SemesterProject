@@ -136,19 +136,15 @@ public class PlayerModel : MonoBehaviour
 		// Check if anythign was hit
 		if(hit.collider)
 		{
-			Debug.Log("Ground Hit");
 			isGrounded = true;
 			numJumps = 0;
 		}
-		
-		Debug.Log("Check grounding: " + isGrounded);
     }
 	
 	protected void OnCollisionExit2D(Collision2D collision)
 	{
 		if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
 		{
-			Debug.Log("Left ground");
 			TimerManager.GetWorldTimerManager().AddTimer(0.1f, this.CheckGrounding);
 		}
 	}
