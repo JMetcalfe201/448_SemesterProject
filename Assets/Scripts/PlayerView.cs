@@ -11,6 +11,8 @@ public class PlayerView : MonoBehaviour
 	[SerializeField] protected GameObject heartLayout;
 	[SerializeField] protected GameObject heartPrefab;
 	
+	protected bool alreadySentAxisJump;
+	
 	[SerializeField] protected Sprite deathSprite;
 	
 	[SerializeField] protected List<GameObject> healthHearts;
@@ -19,6 +21,8 @@ public class PlayerView : MonoBehaviour
 	protected void Start () 
 	{
 		movementEnabled = true;
+		
+		alreadySentAxisJump = false;
 	}
 	
 	// Update is called once per frame (inherated from MonoBehavior)
@@ -55,10 +59,15 @@ public class PlayerView : MonoBehaviour
 		}
 		
 		// If the player has pressed the up joystick or key enough
-		if(verticalInput >= 0.8f && movementEnabled)
+		if(verticalInput >= 0.8f && movementEnabled && !alreadySentAxisJump)
 		{
 			// Pass down the call
 			controller.OnJump();
+			
+			alreadySentAxisJump = true;
+		}else if(alreadySentAxisJump)
+		{
+			alreadySentAxisJump = false;
 		}
 		
 		// If the jump button has been pressed
