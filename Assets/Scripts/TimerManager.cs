@@ -23,20 +23,20 @@ public class TimerManager : MonoBehaviour
 	{
 		// Name the object so it can be retreived later
 		gameObject.name = "World Timer Manager";
-		
-		// Initialize the list of timers
-		timers = new List<Timer>();
 	}
 	
 	// Update is called once per frame
 	protected void Update () 
 	{
+		if(timers == null)
+			timers = new List<Timer>();
+	
 		// Go through all the current timers
 		for(int i = 0; i < timers.Count; i++)
 		{
 			// If the timer is expired
-			if(timers[i].expireTime >= Time.time)
-			{
+			if(timers[i].expireTime <= Time.time)
+			{			
 				// Call the delegate
 				timers[i].expireFunction();
 				
@@ -81,6 +81,9 @@ public class TimerManager : MonoBehaviour
 		newTimer.length = length;
 		newTimer.repeatedTimes = 0;
 		newTimer.maxRepeatTimes = maxRepeatTimes;
+		
+		if(timers == null)
+			timers = new List<Timer>();
 		
 		timers.Add(newTimer);
 	}

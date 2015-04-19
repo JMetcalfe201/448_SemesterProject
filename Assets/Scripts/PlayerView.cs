@@ -15,11 +15,13 @@ public class PlayerView : MonoBehaviour
 	
 	[SerializeField] protected Sprite deathSprite;
 	
-	[SerializeField] protected List<GameObject> healthHearts;
+	protected List<GameObject> healthHearts;
 
 	// Use this for initialization (inherated from MonoBehavior)
-	protected void Start () 
+	protected void Awake () 
 	{
+		healthHearts = new List<GameObject>();
+	
 		movementEnabled = true;
 		
 		alreadySentAxisJump = false;
@@ -65,7 +67,7 @@ public class PlayerView : MonoBehaviour
 			controller.OnJump();
 			
 			alreadySentAxisJump = true;
-		}else if(alreadySentAxisJump)
+		}else if(verticalInput < 0.8f)
 		{
 			alreadySentAxisJump = false;
 		}

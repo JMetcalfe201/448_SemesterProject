@@ -140,6 +140,21 @@ public class PlayerModel : MonoBehaviour
 			numJumps = 0;
 		}
     }
+    
+    protected void OnCollisionEnter2D(Collision2D collision)
+    {
+    	if(collision.collider.tag == "Enemy")
+    	{
+			if(transform.position.x > collision.transform.position.x - (collision.gameObject.GetComponent<BoxCollider2D>().size.x * 1.25f) && transform.position.x < collision.transform.position.x + (collision.gameObject.GetComponent<BoxCollider2D>().size.x * 1.25f))
+			{
+				if(transform.position.y > collision.transform.position.y + collision.gameObject.GetComponent<BoxCollider2D>().size.y/2)
+				{
+					collision.gameObject.GetComponent<BaseEnemy>().TakeDamage(1);
+					physics.AddForce(new Vector2(0, 15f), ForceMode2D.Impulse);
+				}
+			}
+    	}
+    }
 	
 	protected void OnCollisionExit2D(Collision2D collision)
 	{
