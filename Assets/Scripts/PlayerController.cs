@@ -33,4 +33,14 @@ public class PlayerController : MonoBehaviour
 		view.SwitchToDeathSprite();
 		view.SetMovementEnabled(false);
 	}
+	
+	public void NotifyGrounding(bool grounded)
+	{
+		if(grounded)
+		{
+			view.ResetSpriteSortDepth();
+		}else{
+			view.BringSpriteForward();
+		}
+	}
 }

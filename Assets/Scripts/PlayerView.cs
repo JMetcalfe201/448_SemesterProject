@@ -109,6 +109,16 @@ public class PlayerView : MonoBehaviour
 		}
 	}
 	
+	public void BringSpriteForward()
+	{
+		GetComponent<SpriteRenderer>().sortingLayerName = "Foreground";
+	}
+	
+	public void ResetSpriteSortDepth()
+	{
+		GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+	}
+	
 	public void SwitchToDeathSprite()
 	{
 		// Swap the player sprite

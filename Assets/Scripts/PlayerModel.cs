@@ -20,7 +20,7 @@ public class PlayerModel : MonoBehaviour
 	// Use this for initialization (inherated from MonoBehavior)
 	protected void Start () 
 	{
-		isGrounded = false;
+		SetGrounding(false);
 		numJumps = 0;
 		
 		// Make sure the player can jump at least once
@@ -91,7 +91,7 @@ public class PlayerModel : MonoBehaviour
 			// Adds an upward force to the player
 			physics.AddForce(new Vector2(0 , jumpForce), ForceMode2D.Impulse);
 			
-			isGrounded = false;
+			SetGrounding(false);
 			numJumps++;
 		}
 	}
@@ -136,9 +136,17 @@ public class PlayerModel : MonoBehaviour
 		// Check if anythign was hit
 		if(hit.collider)
 		{
-			isGrounded = true;
+			SetGrounding(true);
 			numJumps = 0;
+		}else{
+			SetGrounding(false);
 		}
+    }
+    
+    protected void SetGrounding(bool g)
+    {
+    	controller.NotifyGrounding(g);
+    	isGrounded = g;
     }
     
     protected void OnCollisionEnter2D(Collision2D collision)

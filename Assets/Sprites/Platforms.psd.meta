@@ -1,0 +1,143 @@
+fileFormatVersion: 2
+guid: 61384e973754674489304d7cbe39bdba
+timeCreated: 1429413008
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Grass_Overlay
+    21300002: Dirt_Underlay
+    21300004: Metal_Platform
+    21300006: Metal_Strut_Short
+    21300008: Metal_Platform_Short
+    21300010: Metal_Strut_Medium
+    21300012: Metal_Strut_Tiny
+    21300014: Metal_Strut_Long
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 512
+  textureSettings:
+    filterMode: 2
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 75
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Grass_Overlay
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 456
+        width: 473
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Dirt_Underlay
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 372
+        width: 445
+        height: 57
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal_Platform
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 340
+        width: 458
+        height: 9
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal_Strut_Short
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 323
+        width: 117
+        height: 4
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal_Platform_Short
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 321
+        width: 229
+        height: 9
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal_Strut_Medium
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 312
+        width: 231
+        height: 4
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal_Strut_Tiny
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 312
+        width: 32
+        height: 4
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Metal_Strut_Long
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 302
+        width: 459
+        height: 4
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
