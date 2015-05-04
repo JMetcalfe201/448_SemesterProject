@@ -4,11 +4,15 @@ using System.Collections;
 
 public class UIGroup : MonoBehaviour 
 {
+	public bool startOff = false;
 
 	// Use this for initialization
 	void Start () 
 	{
-	
+		if(startOff)
+		{
+			HideUI ();
+		}
 	}
 	
 	// Update is called once per frame

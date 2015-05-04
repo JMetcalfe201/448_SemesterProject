@@ -10,12 +10,12 @@ public class AutoRouteThroughMainMenu : MonoBehaviour
 	{
 		if(!LevelManager.GetLevelManager())
 		{
-			DontDestroyOnLoad(gameObject);
-			levelToLoad = Application.loadedLevel;
+			//DontDestroyOnLoad(gameObject);
+			//levelToLoad = Application.loadedLevel;
 			
 			if(levelToLoad > 0)
 			{
-				Application.LoadLevel(0);
+				//Application.LoadLevel(0);
 			}
 		}
 	}
@@ -24,8 +24,8 @@ public class AutoRouteThroughMainMenu : MonoBehaviour
 	{
 		if(level == 0)
 		{
-			LevelManager.GetLevelManager().LoadLevel(levelToLoad);
-			Destroy (gameObject);
+			//LevelManager.GetLevelManager().LoadLevel(levelToLoad);
+			//Destroy (gameObject);
 		}
 	}
 	

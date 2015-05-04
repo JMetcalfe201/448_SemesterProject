@@ -2,7 +2,6 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 
 public class PlayerView : MonoBehaviour 
 {
@@ -133,6 +132,6 @@ public class PlayerView : MonoBehaviour
 	{
 		respawnButtonGameObject = GameObject.Find ("RespawnButton");
 		respawnButton = respawnButtonGameObject.GetComponent<Button> ();
-		respawnButton.gameObject.SetActive (true);
+		respawnButton.GetComponent<UIGroup>().ShowUI();
 	}
 }

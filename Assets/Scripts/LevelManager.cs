@@ -81,7 +81,7 @@ public class LevelManager : MonoBehaviour
 		
 		// Show the loading screen and start loading
 		ShowLoadingScreen();
-		Application.LoadLevel(Application.loadedLevel);
+		Application.LoadLevel(level);
 	}
 	
 	public void ResetLevel()
