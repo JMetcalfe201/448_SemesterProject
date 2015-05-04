@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
 	[SerializeField] protected Text ScoreText;
 	[SerializeField] protected UIGroup LoadingScreenGroup;
 	[SerializeField] protected UIGroup GameplayUIGroup;
+	[SerializeField] protected UIGroup WinningScreenGroup;
 	[SerializeField] protected GameObject Canvas;
 	[SerializeField] protected GameObject EventSystem;
 	
@@ -79,9 +80,20 @@ public class LevelManager : MonoBehaviour
 			Destroy (GameObject.Find ("Start Button"));
 		}
 		
+		if(level == 0)
+		{
+			Destroy(Canvas);
+			Destroy(EventSystem);
+		}
+		
 		// Show the loading screen and start loading
 		ShowLoadingScreen();
 		Application.LoadLevel(level);
+		
+		if(level == 0)
+		{
+			Destroy (gameObject);
+		}
 	}
 	
 	public void ResetLevel()
@@ -89,6 +101,11 @@ public class LevelManager : MonoBehaviour
 		ShowLoadingScreen();
 		
 		Application.LoadLevel(Application.loadedLevel);
+	}
+	
+	public void Quit()
+	{
+		Application.Quit();
 	}
 		
 	protected void ShowLoadingScreen()
@@ -112,7 +129,13 @@ public class LevelManager : MonoBehaviour
 	{	
 		// Deactivate the loading screen UI objects
 		LoadingScreenGroup.HideUI();
-		GameplayUIGroup.ShowUI();
+		
+		if(!Application.loadedLevelName.Equals("level_Victory"))
+		{
+			GameplayUIGroup.ShowUI();
+		}else{
+			WinningScreenGroup.ShowUI();
+		}
 	}
 	
 	// So this object is availiable from any where

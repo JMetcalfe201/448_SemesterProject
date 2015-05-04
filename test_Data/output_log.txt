@@ -1,0 +1,33 @@
+Initialize engine version: 5.0.0f4 (5b98b70ebeb9)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 780 Ti  (ID=0x100a)
+    Vendor:   NVIDIA
+    VRAM:     2994 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: Z:\448_SemesterProject\test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading Z:\448_SemesterProject\test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: Z:\448_SemesterProject\test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading Z:\448_SemesterProject\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: Z:\448_SemesterProject\test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading Z:\448_SemesterProject\test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.037 seconds
+desktop: 2560x1440 59Hz; virtual: 4000x1440 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: Z:\448_SemesterProject\test_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: Z:\448_SemesterProject\test_Data\Managed\System.dll (this message is harmless)
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.527340 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 311.
+Total: 0.320569 ms (FindLiveObjects: 0.025053 ms CreateObjectMapping: 0.020526 ms MarkObjects: 0.268047 ms  DeleteObjects: 0.006037 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.447952 ms
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 246.
+Total: 0.258387 ms (FindLiveObjects: 0.020224 ms CreateObjectMapping: 0.017205 ms MarkObjects: 0.204657 ms  DeleteObjects: 0.015394 ms)
+

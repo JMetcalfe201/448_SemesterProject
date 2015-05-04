@@ -3,29 +3,13 @@ using System.Collections;
 
 public class AutoRouteThroughMainMenu : MonoBehaviour 
 {
-	protected int levelToLoad;
 
 	// Use this for initialization
 	void Start () 
 	{
 		if(!LevelManager.GetLevelManager())
 		{
-			//DontDestroyOnLoad(gameObject);
-			//levelToLoad = Application.loadedLevel;
-			
-			if(levelToLoad > 0)
-			{
-				//Application.LoadLevel(0);
-			}
-		}
-	}
-	
-	void OnLevelWasLoaded(int level)
-	{
-		if(level == 0)
-		{
-			//LevelManager.GetLevelManager().LoadLevel(levelToLoad);
-			//Destroy (gameObject);
+			Debug.LogError("When testing you must hit play from the main_menu level. Then press the number for the index of the level you want to load.\n Make sure the level you want is added in File->Build Options");
 		}
 	}
 	
