@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 	// Use this for initialization (inherated from MonoBehavior)
 	protected void Start () 
 	{
-	
+
 	}
 	
 	public void OnMoveRight(float amount)
@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
 	{
 		view.SwitchToDeathSprite();
 		view.SetMovementEnabled(false);
+
+		view.DisplayRespawnButton ();
 	}
 	
 	public void NotifyGrounding(bool grounded)

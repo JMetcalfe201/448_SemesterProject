@@ -171,4 +171,9 @@ public class PlayerModel : MonoBehaviour
 			TimerManager.GetWorldTimerManager().AddTimer(0.1f, this.CheckGrounding);
 		}
 	}
+
+	public void RespawnPlayer() 
+	{
+		Application.LoadLevel (Application.loadedLevel);
+	}
 }

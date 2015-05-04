@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class PlayerView : MonoBehaviour 
 {
@@ -16,6 +17,9 @@ public class PlayerView : MonoBehaviour
 	[SerializeField] protected Sprite deathSprite;
 	
 	protected List<GameObject> healthHearts;
+
+	public GameObject respawnButtonGameObject;
+	public Button respawnButton;
 
 	// Use this for initialization (inherated from MonoBehavior)
 	protected void Awake () 
@@ -129,5 +133,12 @@ public class PlayerView : MonoBehaviour
 	{
 		// Set movment
 		movementEnabled = b;
+	}
+
+	public void DisplayRespawnButton()
+	{
+		respawnButtonGameObject = GameObject.Find ("RespawnButton");
+		respawnButton = respawnButtonGameObject.GetComponent<Button> ();
+		respawnButton.gameObject.SetActive (true);
 	}
 }
