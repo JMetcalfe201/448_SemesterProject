@@ -5,6 +5,8 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 public class BaseEnemy : MonoBehaviour 
 {
+	[SerializeField] protected int scoreValue;
+
 	[SerializeField] protected int health;
 	[SerializeField] protected float speed;
 	[SerializeField] protected int damage;
@@ -16,8 +18,6 @@ public class BaseEnemy : MonoBehaviour
 	protected BoxCollider2D coll;
 	protected Rigidbody2D physics;
 	
-	protected int scoreWorth;
-	
 	protected bool alreadySentDamage;
 	
 	[SerializeField] protected Sprite deathSprite;
@@ -27,6 +27,7 @@ public class BaseEnemy : MonoBehaviour
 	{
 		tag = "Enemy";
 	
+		// Get highly accessed componenets
 		coll = GetComponent<BoxCollider2D>();
 		physics = GetComponent<Rigidbody2D>();
 	
@@ -47,10 +48,13 @@ public class BaseEnemy : MonoBehaviour
 	
 	protected virtual void Move()
 	{
+		// Get the direction
 		float dirX = movingLeft ? -1.0f : 1.0f;
 		
+		// Add teh move force
 		physics.AddForce(new Vector2(dirX * 100f, 0), ForceMode2D.Force);
 		
+		// Clamp the speed
 		if(physics.velocity.x > speed || physics.velocity.x < -speed)
 		{
 			physics.velocity = new Vector2(speed*dirX, physics.velocity.y); 
@@ -59,7 +63,10 @@ public class BaseEnemy : MonoBehaviour
 	
 	protected virtual void Die()
 	{
+		// Remove the direction checking timer
 		TimerManager.GetWorldTimerManager().RemoveTimer(this.CheckDirectionChange);
+		
+		// Update the sprite
 		GetComponent<SpriteRenderer>().sprite = deathSprite;
 	
 		// Turn off collision and throw the player up in the air and spin them
@@ -68,6 +75,10 @@ public class BaseEnemy : MonoBehaviour
 		physics.AddForce(new Vector2(Random.Range(-3f,3f), 25f), ForceMode2D.Impulse);
 		physics.AddTorque(500f);
 		
+		// Add to player's score
+		LevelManager.GetLevelManager().AddScore(scoreValue);
+		
+		// Set the object to be deleted
 		TimerManager.GetWorldTimerManager().AddTimer(4f, this.FinalizeDeath);
 	}
 	
@@ -79,11 +90,14 @@ public class BaseEnemy : MonoBehaviour
 	// Box cast infront of this enemy downward to see if it will fall
 	public virtual void CheckDirectionChange()
 	{
+		// Find current direction
 		float dirX = movingLeft ? -1.0f : 1.0f;
 	
+		// Cast a box infront of the character to see if it is the edge of the platform
 		RaycastHit2D hit;
 		hit = Physics2D.BoxCast(transform.position + new Vector3(dirX * coll.size.x + 0.25f, 0, 0), coll.size, 0, new Vector2(0, -1), 5f, 1 << LayerMask.NameToLayer("Ground"));
-
+	
+		// If no ground was hit then we are at the edge and switch direction
 		if(hit.collider == null)
 		{
 			movingLeft = !movingLeft;
@@ -93,6 +107,7 @@ public class BaseEnemy : MonoBehaviour
 	
 	public void TakeDamage(int amount)
 	{
+		// Decrement health and check for death
 		health -= amount;
 		
 		if(health <= 0)
@@ -119,6 +134,7 @@ public class BaseEnemy : MonoBehaviour
 	
 	public void OnCollisionExit2D (Collision2D col)
 	{
+		// Reset so the player can take damage again
 		if(col.gameObject.name.Equals("Player"))
 		{
 			alreadySentDamage = false;

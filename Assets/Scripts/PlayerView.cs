@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -8,8 +9,8 @@ public class PlayerView : MonoBehaviour
 	[SerializeField] protected PlayerController controller;
 	protected bool movementEnabled;
 	
-	[SerializeField] protected Canvas canvas;
-	[SerializeField] protected GameObject heartLayout;
+	protected Canvas canvas;
+	protected GameObject heartLayout;
 	[SerializeField] protected GameObject heartPrefab;
 	
 	protected bool alreadySentAxisJump;
@@ -24,6 +25,11 @@ public class PlayerView : MonoBehaviour
 	// Use this for initialization (inherated from MonoBehavior)
 	protected void Awake () 
 	{
+		// Store highly accessed components
+		canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+		heartLayout = GameObject.Find ("Heart Layout");
+		
+		// Initialize hearts list
 		healthHearts = new List<GameObject>();
 	
 		movementEnabled = true;
@@ -35,19 +41,6 @@ public class PlayerView : MonoBehaviour
 	private void Update () 
 	{
 		HandleInput ();
-		
-		
-		//For testing////
-		if(Input.GetKeyDown(KeyCode.KeypadPlus))
-		{
-			UpdateHealth(healthHearts.Count+1);
-		}
-		
-		if(Input.GetKeyUp(KeyCode.KeypadMinus))
-		{
-			UpdateHealth(healthHearts.Count-1);
-		}
-		////////////////
 	}
 	
 	private void HandleInput()
@@ -107,6 +100,7 @@ public class PlayerView : MonoBehaviour
 			{
 				// Create a new heart and put it in the layout
 				GameObject newHeart = Instantiate(heartPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+				newHeart.GetComponent<Image>().enabled = false;
 				newHeart.transform.SetParent(heartLayout.transform);
 				healthHearts.Add(newHeart);
 			}
