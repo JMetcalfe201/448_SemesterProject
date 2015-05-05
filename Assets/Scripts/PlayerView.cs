@@ -91,6 +91,7 @@ public class PlayerView : MonoBehaviour
 					GameObject heart = healthHearts[healthHearts.Count-1];
 					healthHearts.Remove(heart);
 					Destroy(heart);
+					OnPlayerStartHurt();
 				}
 			}
 			
@@ -104,6 +105,24 @@ public class PlayerView : MonoBehaviour
 				healthHearts.Add(newHeart);
 			}
 		}
+	}
+	
+	public void NotifyDestroy()
+	{
+		UpdateHealth(0);
+	}
+	
+	protected void OnPlayerStartHurt()
+	{
+		// Changes player's color to red for a half second to notify damage to user
+		GetComponent<SpriteRenderer>().color = new Color(.5f, .04f, .1f);
+		TimerManager.GetWorldTimerManager().AddTimer(0.2f, this.OnPlayerStopHurt);
+	}
+	
+	protected void OnPlayerStopHurt()
+	{
+		// Resets player's color to white
+		GetComponent<SpriteRenderer>().color = Color.white;
 	}
 	
 	public void BringSpriteForward()

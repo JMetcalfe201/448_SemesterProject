@@ -9,7 +9,7 @@ public class AutoRouteThroughMainMenu : MonoBehaviour
 	{
 		if(!LevelManager.GetLevelManager())
 		{
-			Debug.LogError("When testing you must hit play from the main_menu level. Then press the number for the index of the level you want to load.\n Make sure the level you want is added in File->Build Options");
+			Debug.LogError("When testing you must hit play from the main_menu level. Then press the number on the keyboard for the index of the level you want to load.\n Make sure the level you want is added in File->Build Options");
 		}
 	}
 	

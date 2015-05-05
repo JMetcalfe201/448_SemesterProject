@@ -37,6 +37,11 @@ public class LevelManager : MonoBehaviour
 		{
 			loadingTime += Time.deltaTime;
 		}
+		
+		if(Input.GetKeyDown(KeyCode.Escape))
+		{
+			LoadLevel(0);
+		}
 	}
 	
 	public void AddScore(int points)
@@ -86,6 +91,8 @@ public class LevelManager : MonoBehaviour
 			Destroy(EventSystem);
 		}
 		
+		NotifyObjectsOfLoad();
+		
 		// Show the loading screen and start loading
 		ShowLoadingScreen();
 		Application.LoadLevel(level);
@@ -100,7 +107,19 @@ public class LevelManager : MonoBehaviour
 	{
 		ShowLoadingScreen();
 		
+		NotifyObjectsOfLoad();
+		
 		Application.LoadLevel(Application.loadedLevel);
+	}
+	
+	protected void NotifyObjectsOfLoad()
+	{
+		GameObject player = GameObject.FindGameObjectWithTag("Player");
+		
+		if(player)
+		{
+			player.GetComponent<PlayerView>().NotifyDestroy();
+		}
 	}
 	
 	public void Quit()

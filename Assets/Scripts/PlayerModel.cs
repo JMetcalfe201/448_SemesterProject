@@ -143,6 +143,11 @@ public class PlayerModel : MonoBehaviour
 		}
     }
     
+    public int GetHealth()
+    {
+    	return health;
+    }
+    
     protected void SetGrounding(bool g)
     {
     	controller.NotifyGrounding(g);
