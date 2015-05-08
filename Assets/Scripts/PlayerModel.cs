@@ -179,7 +179,7 @@ public class PlayerModel : MonoBehaviour
 
 	public void RespawnPlayer() 
 	{
-		controller.onRespawn ();
 		Application.LoadLevel (Application.loadedLevel);
+		controller.onRespawn ();
 	}
 }
