@@ -120,15 +120,17 @@ public class BaseEnemy : MonoBehaviour
 	public void OnCollisionEnter2D (Collision2D col)
 	{
 		// If collision with the player
-		if(col.gameObject.name.Equals("Player"))
-		{	
+		if (col.gameObject.name.Equals ("Player")) {	
 			// If the player is not above this enemy
-			if(!(col.gameObject.transform.position.x > transform.position.x - (coll.size.x * 1.5f) && col.gameObject.transform.position.x < transform.position.x + (coll.size.x * 1.25f) && col.gameObject.transform.position.y > transform.position.y + coll.size.y/2))
-			{
-				col.gameObject.GetComponent<PlayerModel>().TakeDamage(damage);
-				col.gameObject.GetComponent<Rigidbody2D>().AddForce((col.transform.position - transform.position).normalized * (damage * 50f), ForceMode2D.Impulse);
+			if (!(col.gameObject.transform.position.x > transform.position.x - (coll.size.x * 1.5f) && col.gameObject.transform.position.x < transform.position.x + (coll.size.x * 1.25f) && col.gameObject.transform.position.y > transform.position.y + coll.size.y / 2)) {
+				col.gameObject.GetComponent<PlayerModel> ().TakeDamage (damage);
+				col.gameObject.GetComponent<Rigidbody2D> ().AddForce ((col.transform.position - transform.position).normalized * (damage * 50f), ForceMode2D.Impulse);
 				alreadySentDamage = true;
 			}
+		}
+		if (col.gameObject.tag.Equals("Wall") || col.gameObject.tag.Equals("Enemy")) {
+			movingLeft = !movingLeft;
+			physics.velocity = new Vector2(-physics.velocity.x, physics.velocity.y);
 		}
 	}
 	
