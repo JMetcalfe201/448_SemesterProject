@@ -153,4 +153,11 @@ public class PlayerView : MonoBehaviour
 		respawnButton = respawnButtonGameObject.GetComponent<Button> ();
 		respawnButton.GetComponent<UIGroup>().ShowUI();
 	}
+
+	public void HideRespawnButton() 
+	{
+		respawnButtonGameObject = GameObject.Find ("RespawnButton");
+		respawnButton = respawnButtonGameObject.GetComponent<Button> ();
+		respawnButton.GetComponent<UIGroup> ().HideUI ();
+	}
 }

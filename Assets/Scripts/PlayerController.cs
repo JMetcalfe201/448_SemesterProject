@@ -35,6 +35,11 @@ public class PlayerController : MonoBehaviour
 
 		view.DisplayRespawnButton ();
 	}
+
+	public void onRespawn ()
+	{
+		view.HideRespawnButton ();
+	}
 	
 	public void NotifyGrounding(bool grounded)
 	{
