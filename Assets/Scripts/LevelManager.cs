@@ -83,6 +83,10 @@ public class LevelManager : MonoBehaviour
 		if(Application.loadedLevel == 0)
 		{
 			Destroy (GameObject.Find ("Start Button"));
+			Destroy (GameObject.Find ("LevelSelect 1"));
+			Destroy (GameObject.Find ("LevelSelect 2"));
+			Destroy (GameObject.Find ("LevelSelect 3"));
+			Destroy (GameObject.Find ("LevelSelect 4"));
 		}
 		
 		if(level == 0)
