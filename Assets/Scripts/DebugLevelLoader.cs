@@ -13,7 +13,7 @@ public class DebugLevelLoader : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if(Input.anyKeyDown)
+		if(Input.anyKeyDown && Application.isEditor)
 		{
 			if(Input.GetKeyDown(KeyCode.Alpha0))
 			{
