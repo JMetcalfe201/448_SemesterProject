@@ -128,7 +128,7 @@ public class BaseEnemy : MonoBehaviour
 				alreadySentDamage = true;
 			}
 		}
-		if (col.gameObject.tag.Equals("Wall") || col.gameObject.tag.Equals("Enemy")) 
+		if (col.gameObject.CompareTag("Wall") || col.gameObject.CompareTag("Enemy")) 
 		{
 			Debug.Log("Turning around : coll with " + col.gameObject.name);
 			movingLeft = !movingLeft;

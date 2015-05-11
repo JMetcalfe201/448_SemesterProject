@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
 	protected int score;
 	
 	[SerializeField] protected Text ScoreText;
+	[SerializeField] protected UIGroup MainMenuGroup;
 	[SerializeField] protected UIGroup LoadingScreenGroup;
 	[SerializeField] protected UIGroup GameplayUIGroup;
 	[SerializeField] protected UIGroup WinningScreenGroup;
@@ -69,6 +70,9 @@ public class LevelManager : MonoBehaviour
 		if(Application.loadedLevel > 0)
 		{
 			ScoreText.text = score.ToString();
+			MainMenuGroup.HideUI();
+		}else{
+			MainMenuGroup.ShowUI();
 		}
 	}
 	
